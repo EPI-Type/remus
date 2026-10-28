@@ -21,12 +21,12 @@ document.querySelectorAll('.weights .switch-container > div').forEach(el => {
 	});
 });
 
-document.querySelectorAll('.slant .switch-container > div').forEach(el => {
+document.querySelectorAll('.italic .switch-container > div').forEach(el => {
 	el.addEventListener('mouseenter', function () {
 		this.parentElement.querySelectorAll('div').forEach(s => s.classList.remove('active'));
 		this.classList.add('active');
 		const text = this.closest('.large-type')?.querySelector('.text');
-		if (text) text.style.fontStyle = this.dataset.slant;
+		if (text) text.style.fontVariationSettings = `'ital' ${this.dataset.ital}`;
 	});
 });
 

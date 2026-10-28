@@ -15,3 +15,6 @@ docs/assets/css/main.css.map
 
 # Proof (binary InDesign files)
 proof
+
+# Local build output
+build/

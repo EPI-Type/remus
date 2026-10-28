@@ -31,6 +31,11 @@ customParameters = (
 {
 name = "EditView Line Height";
 value = 1000;
+},
+{
+name = fsType;
+value = (
+);
 }
 );
 date = "2026-07-05 12:25:35 +0000";
@@ -544889,7 +544894,6 @@ axesValues = (
 0
 );
 isBold = 1;
-isItalic = 1;
 linkStyle = "Regular Condensed";
 name = "Bold Condensed";
 weightClass = 700;
@@ -544902,6 +544906,7 @@ axesValues = (
 1
 );
 isBold = 1;
+isItalic = 1;
 linkStyle = "Regular Condensed";
 name = "Bold Condensed Italic";
 weightClass = 700;
@@ -648444,18 +648449,26 @@ key = copyrights;
 values = (
 {
 language = dflt;
-value = "Copyright 2024 The Remus Variable Project Authors (https://github.com/jensschnitzler/Remus-Variable)";
+value = "Copyright 2024 The Remus Variable Project Authors (https://github.com/EPI-Type/remus). Based on TeX Gyre Heros, Copyright 2007-2009 B. Jackowski and J.M. Nowacki (on behalf of TeX Users Groups), which is based on URW Nimbus Sans L by URW++ Design and Development Inc.; Vietnamese characters by Han The Thanh.";
 }
 );
 },
 {
-key = trademarks;
+key = licenses;
 values = (
 {
 language = dflt;
-value = "Remus Variable is licensed under the GUST Font License";
+value = "This Font Software is released under the GUST Font License, version 1.0, an instance of the LaTeX Project Public License (version 1.3c or later). See GUST-FONT-LICENSE.txt.";
 }
 );
+},
+{
+key = licenseURL;
+value = "https://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt";
+},
+{
+key = vendorID;
+value = EPIT;
 }
 );
 settings = {
@@ -648546,5 +648559,5 @@ tH = "68";
 };
 };
 versionMajor = 0;
-versionMinor = 101;
+versionMinor = 200;
 }

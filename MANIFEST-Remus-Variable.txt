@@ -19,3 +19,7 @@ MANIFEST-Remus-Variable.txt
 GUST-FONT-LICENSE.txt
 AUTHORS.txt
 CONTRIBUTORS.txt
+Makefile
+requirements.txt
+scripts/webfonts.py
+scripts/fix_nonhinting.py

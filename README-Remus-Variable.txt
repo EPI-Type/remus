@@ -2,8 +2,8 @@
 %
 Font: Remus Variable
 Designer & Author: Jens Schnitzler
-Version: 0.1
-Date: 2023/09/06
+Version: 0.200
+Date: 2026/10/28
 License:
   % This work is released under the GUST Font License
   %   -- see GUST-FONT-LICENSE.txt.

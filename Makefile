@@ -1,31 +1,37 @@
-.PHONY: all fonts css clean
+.PHONY: all webfonts css check fontmake-test clean
 
-# Requires: fontmake (pip install fontmake), woff2 (brew install woff2)
-# CSS requires: sass (npm install)
+# The released font (fonts/RemusVariableVF.ttf) is exported from Glyphs 3, not built
+# with fontmake. The fontmake build below gives a different result (width axis 75-100,
+# no STAT axis values), so it only writes to build/ and never overwrites fonts/.
+#
+# Requires: pip install -r requirements.txt     (web fonts, QA, fontmake test build)
+#           npm install                         (demo site CSS)
 
-GLYPHS_SOURCE = sources/Remus-Variable.glyphs
-FONTS_DIR     = fonts
-DOCS_FONTS    = docs/assets/fonts
+TTF         = fonts/RemusVariableVF.ttf
+GLYPHS      = sources/Remus-Variable.glyphs
+DOCS_FONTS  = docs/assets/fonts
 
-all: fonts css
+all: webfonts css
 
-fonts: $(FONTS_DIR)/RemusVariableVF.ttf
-
-$(FONTS_DIR)/RemusVariableVF.ttf: $(GLYPHS_SOURCE)
-	fontmake -g $< -o variable --output-path $@
-	@echo "Converting to WOFF2..."
-	woff2_compress $@
-	@echo "Converting to WOFF..."
-	sfnt2woff $@
-	@cp $(FONTS_DIR)/RemusVariableVF.woff2 $(DOCS_FONTS)/RemusVariableVF.woff2
-	@cp $(FONTS_DIR)/RemusVariableVF.woff  $(DOCS_FONTS)/RemusVariableVF.woff
+# Add gasp/prep to the unhinted TTF, derive WOFF/WOFF2 from it and copy all formats to the demo site.
+webfonts: $(TTF)
+	python3 scripts/fix_nonhinting.py $(TTF)
+	python3 scripts/webfonts.py $(TTF)
+	cp fonts/RemusVariableVF.ttf fonts/RemusVariableVF.woff fonts/RemusVariableVF.woff2 $(DOCS_FONTS)/
 
 css:
 	sass docs/assets/scss/main.scss docs/assets/css/main.css --style=compressed
 
+# Quality checks on the released TTF (see requirements.txt).
+check: $(TTF)
+	mkdir -p build
+	fontbakery check-universal --html build/fontbakery.html $(TTF)
+
+# Test build from source with fontmake, for comparison only.
+fontmake-test: $(GLYPHS)
+	mkdir -p build
+	fontmake -g $(GLYPHS) -o variable --output-path build/RemusVariableVF.fontmake.ttf
+
 clean:
-	rm -f $(FONTS_DIR)/RemusVariableVF.ttf \
-	       $(FONTS_DIR)/RemusVariableVF.woff \
-	       $(FONTS_DIR)/RemusVariableVF.woff2 \
-	       docs/assets/css/main.css \
-	       docs/assets/css/main.css.map
+	rm -rf build
+	rm -f docs/assets/css/main.css docs/assets/css/main.css.map

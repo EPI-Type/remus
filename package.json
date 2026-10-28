@@ -1,7 +1,7 @@
 {
   "name": "remus-variable",
-  "version": "0.1.0",
-  "description": "Open-source variable sans-serif typeface derived from TeX Gyre Heros",
+  "version": "0.2.0",
+  "description": "Variable sans-serif typeface derived from TeX Gyre Heros, under the GUST Font License",
   "scripts": {
     "build:css": "sass docs/assets/scss/main.scss docs/assets/css/main.css --style=compressed",
     "watch:css": "sass docs/assets/scss/main.scss docs/assets/css/main.css --style=compressed --watch",

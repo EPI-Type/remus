@@ -5,9 +5,9 @@
 	font-family: 'Remus Variable';
 	src:	url("../fonts/RemusVariableVF.woff2") format("woff2"),
 			url("../fonts/RemusVariableVF.woff") format("woff");
-	font-weight: 100 900;
-	font-stretch: 75% 125%;
-	font-style: oblique 0deg 20deg;
+	font-weight: 400 700;
+	font-stretch: 50% 100%;
+	font-style: normal;
 }
 
 $accent: orange;
@@ -192,7 +192,7 @@ section {
 
 @keyframes variableloop {
 	from {
-		font-weight: 300;
+		font-weight: 400;
 	}
 
 	50% {
@@ -200,7 +200,7 @@ section {
 	}
 
 	to {
-		font-weight: 300;
+		font-weight: 400;
 	}
 }
 
@@ -212,57 +212,30 @@ section {
 
 	.switch-container {
 		div {
-			&:nth-child(1), &:nth-child(4) {
-				width: 20%;
-				flex: 0 0 20%;
+			width: 33.333%;
+			flex: 0 0 33.333%;
+
+			&:nth-child(2) {
+				justify-content: center;
 			}
 
-			&:nth-child(2), &:nth-child(3) {
-				width: 30%;
-				flex: 0 0 30%;
-				justify-content: space-around;
-			}
-
-			&:nth-child(4) {
+			&:last-child {
 				justify-content: flex-end;
-			}
-		}
-
-		@include min-screen(600px) {
-			div {
-				&:nth-child(1), &:nth-child(4) {
-					width: 16.666%;
-					flex: 0 0 16.666%;
-				}
-
-				&:nth-child(2), &:nth-child(3) {
-					width: 33.333%;
-					flex: 0 0 33.333%;
-					justify-content: space-around;
-				}
-
-				&:nth-child(4) {
-					justify-content: flex-end;
-				}
 			}
 		}
 	}
 }
 
-.slant {
+.italic {
 	.text {
-		font-style: oblique 0deg;
-		transition: font-style 300ms;
+		font-variation-settings: 'ital' 0;
+		transition: font-variation-settings 300ms;
 	}
 
 	.switch-container {
 		div {
-			width: 25%;
-			flex: 0 0 25%;
-
-			&:nth-child(2), &:nth-child(3) {
-				justify-content: center;
-			}
+			width: 50%;
+			flex: 0 0 50%;
 
 			&:last-child {
 				justify-content: flex-end;
@@ -284,7 +257,7 @@ section {
 
 		span.disabled {
 			color: $muted;
-			font-weight: 100;
+			font-weight: 400;
 		}
 	}
 
@@ -307,7 +280,7 @@ section {
 .large-type.transition {
 	.text {
 		font-family: 'Remus Variable';
-		font-weight: 100;
+		font-weight: 400;
 		transition: font-weight 300ms;
 
 		&.disabled {
@@ -380,7 +353,8 @@ section {
 			}
 
 			&:nth-child(7), &:nth-child(8) {
-				font-weight: 300;
+				font-weight: 400;
+				font-stretch: 50%;
 			}
 		}
 	}

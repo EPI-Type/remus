@@ -1,0 +1,6 @@
+# Tooling for the web font step, QA and the optional fontmake build.
+# Pin exact versions once you want reproducible releases.
+fonttools
+brotli
+fontmake
+fontbakery
